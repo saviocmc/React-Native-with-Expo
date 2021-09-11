@@ -39,6 +39,7 @@ export default function Services() {
                 data={services}
                 renderItem={({ item }) => <Item {...item} />}
                 keyExtractor={(item) => item.id.toString()}
+                removeClippedSubviews={false}
             />
         </SafeAreaView>
     )
