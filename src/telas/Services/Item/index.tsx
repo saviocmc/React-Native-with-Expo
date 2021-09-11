@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Service } from '..';
-import InputInteger from '../../../components/InputInteger';
+import Button from '../../../components/Button';
+import IntegerInput from '../../../components/IntegerInput';
 import styles from './styles';
 
 export default function Item({ name, price, description }: Service) {
@@ -19,14 +20,18 @@ export default function Item({ name, price, description }: Service) {
                 <View>
                     <View style={styles.value}>
                         <Text style={styles.description}>Quantidade</Text>
-                        <InputInteger value={quantity} onValueChange={setQuantity} />
+                        <IntegerInput
+                            value={quantity}
+                            onValueChange={setQuantity}
+                            style={styles.quantity}
+                        />
                     </View>
                     <View style={styles.value}>
                         <Text style={styles.description}>Preço</Text>
                         <Text style={styles.price}>0</Text>
                     </View>
                 </View>
-                <Button title="Adicionar" onPress={() => alert('!!!')} />
+                <Button value="Adicionar" onClick={() => alert('!!!')} />
             </View>
             <View style={styles.division}></View>
         </>

@@ -1,14 +1,17 @@
 import React from 'react';
-import { TextInput } from 'react-native';
+import { StyleProp, TextInput, TextStyle } from 'react-native';
+import defaultStyles from './styles';
 
 interface Props {
     value: number;
     onValueChange: (value: number) => void;
+    style?: StyleProp<TextStyle>;
 }
 
-export default function InputInteger({ value, onValueChange }: Props) {
+export default function IntegerInput({ value, onValueChange, style }: Props) {
 
     function onTextChange(textValue: string) {
+        if (textValue === '') { onValueChange(0); }
         const numericValue = Number.parseInt(textValue);
         if (isNaN(numericValue)) { return };
         onValueChange(numericValue);
@@ -19,5 +22,6 @@ export default function InputInteger({ value, onValueChange }: Props) {
         onChangeText={onTextChange}
         keyboardType='number-pad'
         selectTextOnFocus
+        style={[defaultStyles.input, style]}
     />
 }
