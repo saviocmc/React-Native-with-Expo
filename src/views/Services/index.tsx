@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, SafeAreaView, StatusBar, Text } from 'react-native';
+import { FlatList, SafeAreaView, StatusBar } from 'react-native';
 import Item from './Item';
 
 export type Service = {
@@ -34,7 +34,6 @@ export default function Services() {
     return (
         <SafeAreaView>
             <StatusBar />
-            <Text>Serviços</Text>
             <FlatList
                 data={services}
                 renderItem={({ item }) => <Item {...item} />}
