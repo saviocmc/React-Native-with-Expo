@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { Service } from '..';
-import Button from '../../../components/Button';
-import IntegerInput from '../../../components/IntegerInput';
+import { Service } from '../../models';
+import Button from '../Button';
+import IntegerInput from '../IntegerInput';
 import styles from './styles';
 
-export default function Item({ name, price, description }: Service) {
+interface Props {
+    service: Service;
+    buttonTitle: string;
+    onButtonPress: () => void;
+    isExpandable: boolean;
+}
+
+export default function Item(props: Props) {
+
+    const { name, price, description } = props.service;
 
     const [quantity, setQuantity] = useState<number>(1);
     const [total, setTotal] = useState<number>(0);
@@ -21,19 +30,19 @@ export default function Item({ name, price, description }: Service) {
         }).format(value)
     }
 
-    function toggleItem() {
+    function toggleExpand() {
         setExpand(expand => !expand);
     }
 
     return (
         <>
-            <TouchableOpacity style={styles.info} onPress={() => toggleItem()}>
+            <TouchableOpacity style={styles.info} onPress={() => toggleExpand()}>
                 <Text style={styles.name}>{name}</Text>
                 <Text style={styles.description}>{description}</Text>
                 <Text style={styles.price}>{formatCurrency(price)}</Text>
             </TouchableOpacity>
             {
-                expand &&
+                (!props.isExpandable || expand) &&
                 <View style={styles.cart}>
                     <View>
                         <View style={styles.value}>
@@ -49,7 +58,7 @@ export default function Item({ name, price, description }: Service) {
                             <Text style={styles.price}>{formatCurrency(total)}</Text>
                         </View>
                     </View>
-                    <Button value="Adicionar ao Carrinho" onClick={() => alert('!!!')} />
+                    <Button value={props.buttonTitle} onClick={() => props.onButtonPress()} />
                 </View>
             }
             <View style={styles.division}></View>

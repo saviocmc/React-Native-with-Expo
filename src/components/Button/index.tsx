@@ -12,7 +12,7 @@ interface Props {
 
 export default function Button({ value, onClick, style, small = false, inverted = false }: Props) {
     return (
-        <TouchableOpacity style={[styles(small, inverted).button, style]}>
+        <TouchableOpacity style={[styles(small, inverted).button, style]} onPress={() => onClick()}>
             <Text style={styles(small, inverted).value}> {value} </Text>
         </TouchableOpacity>
     )
