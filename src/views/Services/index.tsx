@@ -1,6 +1,5 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import Layout from '../../components/Layout';
 import Item from './Item';
 
 export type Service = {
@@ -33,13 +32,13 @@ const services: Service[] = [
 
 export default function Services() {
     return (
-        <Layout>
+        <>
             <FlatList
                 data={services}
                 renderItem={({ item }) => <Item {...item} />}
                 keyExtractor={(item) => item.id.toString()}
                 removeClippedSubviews={false}
             />
-        </Layout>
+        </>
     )
 }
