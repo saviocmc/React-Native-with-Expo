@@ -1,10 +1,10 @@
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
 import React from 'react';
-import Cart from './src/views/Cart';
+import Routes from './src/Routes';
 
 export default function App() {
     return (
-        <Cart />
+        <Routes />
     );
 }
