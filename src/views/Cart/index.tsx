@@ -8,6 +8,7 @@ export type Service = {
     name: string;
     price: number;
     description: string;
+    quantity: number;
 }
 
 const services: Service[] = [
@@ -16,22 +17,25 @@ const services: Service[] = [
         name: 'Banho',
         price: 79.9,
         description: 'Não dê banho no seu gato',
+        quantity: 1,
     },
     {
         id: 2,
         name: 'Vacina V4',
         price: 89.9,
         description: 'Uma dose da vacina V4. Seu gato precisa de duas',
+        quantity: 2,
     },
     {
         id: 3,
         name: 'Vacina Antirrábica',
         price: 99.9,
         description: 'Uma dose da vacina Antirrábica. Seu gato precisa de uma por ano',
+        quantity: 1,
     },
 ]
 
-export default function Services() {
+export default function Cart() {
     return (
         <Layout>
             <FlatList

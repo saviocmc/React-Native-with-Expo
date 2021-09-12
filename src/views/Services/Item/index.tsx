@@ -49,7 +49,7 @@ export default function Item({ name, price, description }: Service) {
                             <Text style={styles.price}>{formatCurrency(total)}</Text>
                         </View>
                     </View>
-                    <Button value="Adicionar" onClick={() => alert('!!!')} />
+                    <Button value="Adicionar ao Carrinho" onClick={() => alert('!!!')} />
                 </View>
             }
             <View style={styles.division}></View>
