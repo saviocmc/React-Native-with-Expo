@@ -1,7 +1,7 @@
 import React from 'react';
-import { FlatList, KeyboardAvoidingView, KeyboardAvoidingViewBase, SafeAreaView, StatusBar, Platform } from 'react-native';
-import Item from './Item';
+import { FlatList, KeyboardAvoidingView, Platform, SafeAreaView, StatusBar } from 'react-native';
 import styles from '../../styles';
+import Item from './Item';
 
 export type Service = {
     id: number;
